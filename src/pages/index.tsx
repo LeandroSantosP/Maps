@@ -20,7 +20,7 @@ export default function Home({ content }: HomeProps) {
   return <HomeTemplate places={content} />;
 }
 
-interface allPlacesProps {
+export interface allPlacesProps {
   allPlaces: {
     id: string;
     slug: string;
@@ -35,7 +35,8 @@ interface allPlacesProps {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { allPlaces } = (await request({
-    query: GET_PLACES
+    query: GET_PLACES,
+    variables: { first: 3 }
   })) as allPlacesProps;
   return {
     props: {

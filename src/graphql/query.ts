@@ -23,8 +23,8 @@ export const GET_PAGE_BY_SLUG = gql`
 `;
 
 export const GET_PLACES = gql`
-  query getPlaces {
-    allPlaces {
+  query getPlaces($first: IntType) {
+    allPlaces(first: $first) {
       id
       slug
       name
@@ -38,6 +38,22 @@ export const GET_PLACES = gql`
         url
         width
         height
+      }
+    }
+  }
+`;
+
+export const GET_PLACE_DETAILS = gql`
+  query getPlace($slug: [String]!) {
+    place(filter: { slug: { in: $slug } }) {
+      slug
+      description
+      name
+      gallery {
+        width
+        height
+        alt
+        url
       }
     }
   }
