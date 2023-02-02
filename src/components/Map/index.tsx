@@ -41,6 +41,10 @@ export const Map = ({ places }: MapProps) => {
           zoom={3}
           minZoom={3}
           scrollWheelZoom={true}
+          maxBounds={[
+            [-180, 180],
+            [180, -180]
+          ]}
           style={{ height: "100%", width: "100%" }}
         >
           <TileLayer
