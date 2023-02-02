@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const MapWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  .leaflet-container {
+    background-color: #0b032d;
+  }
+`;
+
 export const Filter = styled.input`
   position: absolute;
   top: 2rem;

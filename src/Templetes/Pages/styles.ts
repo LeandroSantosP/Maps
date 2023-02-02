@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+//styles
+
 export const Wrapper = styled.main`
   display: flex;
   width: 100%;

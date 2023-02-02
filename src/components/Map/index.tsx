@@ -35,33 +35,35 @@ export const Map = ({ places }: MapProps) => {
   return (
     <>
       <C.Filter type="search" onChange={(e) => handleFlinted(e.target.value)} />
-      <MapContainer
-        center={[51.505, -0.09]}
-        zoom={3}
-        scrollWheelZoom={true}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <>
-          {placesFilter?.map((place, i) => {
-            return (
-              <Marker
-                eventHandlers={{
-                  click: () => {
-                    router.push(`/places/${place.slug}`);
-                  }
-                }}
-                key={`place-${place.id}`}
-                position={[place.location.latitude, place.location.longitude]}
-                title={place.name}
-              />
-            );
-          })}
-        </>
-      </MapContainer>
+      <C.MapWrapper>
+        <MapContainer
+          center={[51.505, -0.09]}
+          zoom={3}
+          scrollWheelZoom={true}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <>
+            {placesFilter?.map((place, i) => {
+              return (
+                <Marker
+                  eventHandlers={{
+                    click: () => {
+                      router.push(`/places/${place.slug}`);
+                    }
+                  }}
+                  key={`place-${place.id}`}
+                  position={[place.location.latitude, place.location.longitude]}
+                  title={place.name}
+                />
+              );
+            })}
+          </>
+        </MapContainer>
+      </C.MapWrapper>
     </>
   );
 };
