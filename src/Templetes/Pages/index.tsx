@@ -1,4 +1,5 @@
 import { LinkWarper } from "components/LinkWarper";
+import { NextSeo } from "next-seo";
 import { X } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { markerDownFormat } from "utils/markerDownFormat";
@@ -20,6 +21,10 @@ export const PageTemplate = ({ body, heading }: PageTemplateProps) => {
 
   return (
     <C.Wrapper>
+      <NextSeo
+        title={`My Trips - ${heading}`}
+        description={`A simple project to show in a map the places that i went and show more information's and photos when clicked`}
+      />
       <LinkWarper href="/">
         <X size={32} />
       </LinkWarper>
