@@ -35,8 +35,7 @@ export interface allPlacesProps {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { allPlaces } = (await request({
-    query: GET_PLACES,
-    variables: { first: 3 }
+    query: GET_PLACES
   })) as allPlacesProps;
   return {
     props: {

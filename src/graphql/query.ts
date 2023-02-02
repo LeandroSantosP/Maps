@@ -44,7 +44,7 @@ export const GET_PLACES = gql`
 `;
 
 export const GET_PLACE_DETAILS = gql`
-  query getPlace($slug: [String]!) {
+  query getPlace($slug: [String]) {
     place(filter: { slug: { in: $slug } }) {
       slug
       description

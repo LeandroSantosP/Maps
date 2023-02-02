@@ -18,10 +18,12 @@ export const Body = styled.div`
   display: flex;
   max-width: 600px;
   font-size: calc(var(--medium) - 1rem);
-  text-align: center;
   max-height: 400px;
-  overflow: auto;
 
-  a {
+  li {
+    margin-bottom: 2rem;
+  }
+
+  p {
   }
 `;

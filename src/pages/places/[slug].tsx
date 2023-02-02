@@ -21,7 +21,7 @@ export type placeProps = {
 
 export default function Places(place: placeProps) {
   const router = useRouter();
-  if (router.isFallback) return <p>Carregando</p>;
+  if (router.isFallback) return null;
   return <PlaceTemplate place={place} />;
 }
 

@@ -6,9 +6,11 @@ import Document, {
   Main,
   NextScript
 } from "next/document";
+import SEO from "../../next-seo.config";
 
 import { ServerStyleSheet } from "styled-components";
 
+import { DefaultSeo } from "next-seo";
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
@@ -38,6 +40,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head />
+        <DefaultSeo {...SEO} />
         <body>
           <Main />
           <NextScript />

@@ -37,17 +37,18 @@ export const Content = styled.div`
 `;
 
 export const GalleryOfPictures = styled.section`
-  display: flex;
+  display: grid;
+  grid-gap: 2rem;
   height: 100%;
   margin-bottom: 2rem;
   gap: 3rem;
-  padding: 1rem;
-  background-color: var(--highlight);
-  flex-direction: column;
   border-radius: 0.4rem;
 
   img {
+    border: 2px solid var(--highlight);
     width: 100%;
+    background-color: #ccc;
+    object-fit: cover;
     height: 100%;
     border-radius: 0.4rem;
   }

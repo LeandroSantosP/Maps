@@ -5,6 +5,7 @@ import { markerDownFormat } from "utils/markerDownFormat";
 import { X } from "phosphor-react";
 import * as C from "./styles";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
 
 type PlaceTempleteProps = {
   place: placeProps;
@@ -26,6 +27,7 @@ export const PlaceTemplate = ({ place }: PlaceTempleteProps) => {
 
   return (
     <C.Wrapper>
+      <NextSeo title={`MyTrips - ${name}`} />
       <LinkWarper href="/">
         <X size={32} />
       </LinkWarper>
@@ -40,6 +42,8 @@ export const PlaceTemplate = ({ place }: PlaceTempleteProps) => {
             height={picture.height}
             width={picture.width}
             src={picture.url}
+            quality={100}
+            loading={"eager"}
           />
         ))}
       </C.GalleryOfPictures>
