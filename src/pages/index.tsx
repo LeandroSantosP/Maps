@@ -20,7 +20,7 @@ export default function Home({ content }: HomeProps) {
   return <HomeTemplate places={content} />;
 }
 
-interface allPlacesProps {
+export interface allPlacesProps {
   allPlaces: {
     id: string;
     slug: string;

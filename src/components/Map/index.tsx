@@ -20,8 +20,8 @@ interface MapProps {
 }
 
 export const Map = ({ places }: MapProps) => {
-  const router = useRouter();
   const [placesFilter, setPlacesFilter] = useState(places);
+  const router = useRouter();
 
   const handleFlinted = (e: string) => {
     const filter = places?.filter((place) => {
@@ -46,20 +46,18 @@ export const Map = ({ places }: MapProps) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <>
-          {placesFilter?.map((place) => {
+          {placesFilter?.map((place, i) => {
             return (
-              <>
-                <Marker
-                  eventHandlers={{
-                    click: () => {
-                      router.push(`/places/${place.slug}`);
-                    }
-                  }}
-                  key={`place-${place.id}`}
-                  position={[place.location.latitude, place.location.longitude]}
-                  title={place.name}
-                />
-              </>
+              <Marker
+                eventHandlers={{
+                  click: () => {
+                    router.push(`/places/${place.slug}`);
+                  }
+                }}
+                key={`place-${place.id}`}
+                position={[place.location.latitude, place.location.longitude]}
+                title={place.name}
+              />
             );
           })}
         </>

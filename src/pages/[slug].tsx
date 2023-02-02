@@ -11,23 +11,19 @@ import { PageTemplate } from "Templetes/Pages";
 //getServerSideProps => server para buscar dados da pagina (props) - runtime - toda requisição (bundle fica somente no server)
 //getInitialProps  => server para buscar dados da pagina (props) - runtime - toda requisição (bundle também vem para o client) - not recommended;
 
-type postData = {
+interface postData {
   heading: string;
   body: string;
   id: string;
   slug: string;
-};
+}
 
 export default function AboutPage({ body, heading }: postData) {
   const router = useRouter();
 
   if (router.isFallback) return null;
 
-  return (
-    <>
-      <PageTemplate heading={heading} body={body} />;
-    </>
-  );
+  return <PageTemplate heading={heading} body={body} />;
 }
 
 type getAllPages = {
@@ -46,10 +42,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   })) as getAllPages;
 
   const paths = allPages.map(({ slug }) => {
-    const res = slug;
-
     return {
-      params: { slug: res.toString() }
+      params: { slug }
     };
   });
 
