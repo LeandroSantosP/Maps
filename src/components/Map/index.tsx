@@ -39,6 +39,7 @@ export const Map = ({ places }: MapProps) => {
         <MapContainer
           center={[51.505, -0.09]}
           zoom={3}
+          minZoom={3}
           scrollWheelZoom={true}
           style={{ height: "100%", width: "100%" }}
         >
